@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <!-- ***************** css load *******************-->
+
+  <!-- framework for css -->
+  <link rel="stylesheet" type="text/css" href="public/css/lib/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="public/css/lib/materialize.min.css">
+
+
+  <!-- current file basic css -->
+  <link rel="stylesheet" type="text/css" href="public/css/index.css">
+
+  <!-- ***************** js load *******************-->
+  <script src="public/js/lib/jquery-3.2.1.min.js"></script>
+  <script src="public/js/lib/bootstrap.min.js"></script>
+  <script src="public/js/lib/materialize.min.js"></script>
+  <script src="public/js/lib/fontawesome-all.min.js"></script>
+  <script src="public/js/lib/chart.min.js"></script>
+  <script src="public/js/index.js"></script>
+  <script src="public/js/tree.js"></script>
+  <script src="public/js/keys.js"></script>
+  <script src="public/js/values.js"></script>
+  <script src="public/js/numbers.js"></script>
+  <script src="public/js/times.js"></script>
+  <script src="public/js/away.js"></script>
+  <script src="public/js/distances.js"></script>
+
+</head>
+
+<body>
+  <div id="cardcontainer" class="row card">
+    <div class="col s10">
+      <div class="canvascontainer">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+    <div class="col s2">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <p><b>Click on the chart to add the corresponding data to the radar graph</b></p>
+          <br>
+          <p>
+            <b>Last data added :
+              <div id="dataNumber">98</div>
+            </b>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s8">
+      <div id="radarcontainer">
+        <canvas id="canvas"></canvas>
+      </div>
+    </div>
+    <div style="margin-left:-10em;" class="col s4">
+      <h6>Graph of comparison between the two above dataset</h6>
+      <script>
+      $(document).ready(function(){
+        $('.collapsible').collapsible();
+      });
+      </script>
+      <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header">
+            <div class="row">
+              <div class="col s8">
+                Dataset
+              </div>
+              <div class="col s2">
+                <div id="datasetblue" style="color:blue">1</div>
+              </div>
+              <div class="col s2">
+                <div id="datasetred" style="color:red">98</div>
+              </div>
+            </div>
+          </div>
+          <div class="collapsible-body"><span>A dataset is identified by the number of time a velo have been used each months.</span></div>
+        </li>
+        <li>
+          <div class="collapsible-header">
+            <div class="row">
+              <div class="col s8">
+                Numbers of velo in this case
+              </div>
+              <div class="col s2">
+                <div id="numberblue" style="color:blue">15%</div>
+              </div>
+              <div class="col s2">
+                <div id="numberred" style="color:red">18%</div>
+              </div>
+            </div>
+          </div>
+          <div class="collapsible-body"><span>Directly taken from the pareto and adapted in % so its the pareto Y number divided by the max (=118419)</span></div>
+        </li>
+        <li>
+          <div class="collapsible-header">
+            <div class="row">
+              <div class="col s8">
+                Away from center
+              </div>
+              <div class="col s2">
+                <div id="awayblue" style="color:blue">15%</div>
+              </div>
+              <div class="col s2">
+                <div id="awayred" style="color:red">18%</div>
+              </div>
+            </div>
+          </div>
+          <div class="collapsible-body"><span>Average distance between the velo tracks and the center compared in % with the other dataset. The center is calculated by the average points of each deplacement of the bike. Its found in extractor details at : x = 121.45090452839759 ; y = 31.249448413593324</span></div>
+        </li>
+        <li>
+          <div class="collapsible-header">
+            <div class="row">
+              <div class="col s8">
+                Average time duration
+              </div>
+              <div class="col s2">
+                <div id="timeblue" style="color:blue">15%</div>
+              </div>
+              <div class="col s2">
+                <div id="timered" style="color:red">18%</div>
+              </div>
+            </div>
+          </div>
+          <div class="collapsible-body"><span>Average time of velo used each time, in % compared with the other dataset</span></div>
+        </li>
+        <li>
+          <div class="collapsible-header">
+            <div class="row">
+              <div class="col s8">
+                Average distance
+              </div>
+              <div class="col s2">
+                <div id="distanceblue" style="color:blue">15%</div>
+              </div>
+              <div class="col s2">
+                <div id="distancered" style="color:red">18%</div>
+              </div>
+            </div>
+          </div>
+          <div class="collapsible-body"><span>Average distance of velo used each time in % compared with the other dataset</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
